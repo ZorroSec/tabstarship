@@ -1,10 +1,10 @@
 const { createConnection } = require("mysql2/promise");
 
-const conn = createConnection({
-    host: "viaduct.proxy.rlwy.net",
-    port: 40008,
-    user: 'railway',
-    password: 'pV9P_zjyP8Wx147UW8NAvbffHlRO~NP.',
+const conn = await createConnection({
+    host: "monorail.proxy.rlwy.net",
+    port: 10733,
+    user: 'root',
+    password: 'Fbf1Cg3D3bB5BCF5gebGAF2d46-3D3-D',
     database: 'railway'
 })
 

@@ -1,7 +1,17 @@
 import Image from "next/image";
 
 import "bootstrap/dist/css/bootstrap.css"
-export default function Home() {
+import { createConnection } from "mysql2/promise";
+import conn from "../../db/connection";
+import { redirect } from "next/navigation";
+import isIp from "../../queryIp/query";
+
+export default async function Home() {
+  const fetchIp = await fetch("https://api.ipify.org/?format=json")
+  const ip = await fetchIp.json();
+  console.log(ip)
+  const [rows, fields] = await conn.query(`SELECT * FROM users WHERE ip = '${ip['ip']}'`)
+  console.log(rows)
   return (
     <>
       <header className="p-3 mb-3 border-bottom">
